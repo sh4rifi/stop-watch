@@ -9,6 +9,7 @@ const style = {
 function StopWatch() {
 
     const [elapsed, setElapsed] = useState(0)
+    const [increment, setIncrement] = useState(0)
 
     const getMillisecond = () => {
         return ('0' + elapsed * 100).slice(-2);
@@ -20,10 +21,36 @@ function StopWatch() {
         return ('0' + Math.floor(elapsed / 60)).slice(-2);
     }
 
+    const startTimer = () => {
+        setIncrement(
+            setInterval(() => {
+                setElapsed(elapsed => elapsed + 1);
+            }, 10)
+        )
+
+    }
+    const resetTimer = () => {
+        setElapsed(0)
+    }
+    const stopTimer = () => {
+        clearInterval(increment);
+
+    }
+
 
     return (
         <div>
             <div style={style.timer}>{getMinute()}:{getSecond()}:{getMillisecond()}</div>
+
+            <button type="button"
+                    onClick={() => stopTimer()}>Stop
+            </button>
+            <button type="button"
+                    onClick={() => startTimer()}>Start
+            </button>
+            <button type="button"
+                    onClick={() => resetTimer()}>Reset
+            </button>
         </div>
     );
 }
