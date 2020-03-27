@@ -6,7 +6,7 @@ import StopWatch from './components/StopWatch/StopWatch';
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
+            <header className="timer-wrap">
                 <StopWatch/>
             </header>
         </div>

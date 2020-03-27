@@ -22,7 +22,7 @@ function StopWatch() {
 
 
     return (
-        <div className="display">
+        <div>
             <div style={style.timer}>{getMinute()}:{getSecond()}:{getMillisecond()}</div>
         </div>
     );
