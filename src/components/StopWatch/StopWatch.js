@@ -15,7 +15,7 @@ function StopWatch() {
         return ('0' + elapsed * 100).slice(-2);
     }
     const getSecond = () => {
-        return ('0' + elapsed % 60).slice(-2);
+        return ('0' + parseInt(elapsed % 60)).slice(-2);
     }
     const getMinute = () => {
         return ('0' + Math.floor(elapsed / 60)).slice(-2);
@@ -24,7 +24,7 @@ function StopWatch() {
     const startTimer = () => {
         setIncrement(
             setInterval(() => {
-                setElapsed(elapsed => elapsed + 1);
+                setElapsed(elapsed => elapsed + 0.01);
             }, 10)
         )
 
